@@ -29,3 +29,5 @@ Game ini dibuat sebagai proyek builder untuk
 toychain di Sepolia testnet. Game saja, tanpa kontrak.
 
 Satu file HTML statis, tanpa build step dan tanpa dependensi server.
+
+squeekchain-project: 0a2cba14-2cbc-46d4-9581-3ddc7bfce2bf
