@@ -1,0 +1,7 @@
+# Dependencies (install ulang: cd contract && npm install --ignore-scripts)
+node_modules/
+# Kredensial NEAR TIDAK PERNAH masuk repo (hidup di ~/.near-credentials/)
+*.near-credentials
+# Build kontrak diatur contract/.gitignore (build/ + test-build/ regenerasi
+# via npm run build / npm test; wasm ter-deploy tercatat di
+# contract/verification-testnet.json).

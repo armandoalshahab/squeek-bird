@@ -161,6 +161,69 @@
       @media (prefers-reduced-motion: reduce){
         .big-stars .on{animation:none;}
       }
+      /* ---------- squeek market ---------- */
+      .market-panel{
+        margin-top:12px;background:var(--panel);border:2px solid var(--panel-edge);
+        border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);
+      }
+      .market-panel h2{font-family:"Baloo 2",cursive;font-weight:800;font-size:1.35rem;margin:0;}
+      .mk-head{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;justify-content:space-between;}
+      .mk-sub{font-weight:700;color:var(--ink-soft);font-size:.88rem;max-width:640px;margin-top:2px;}
+      .mk-head-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+      .mk-badge{display:inline-block;font-size:.78rem;font-weight:800;border-radius:999px;padding:3px 9px;border:1.5px solid var(--panel-edge);background:var(--bg2);color:var(--ink-soft);white-space:nowrap;}
+      .mk-badge.open{background:#e6f7ea;border-color:#9ed6a8;color:#256b36;}
+      .mk-badge.closed{background:#fdeceb;border-color:#f2b0a6;color:#a02c1a;}
+      .mk-badge.investor{background:#fff4d6;border-color:#f0c96a;color:#7a5b00;}
+      .mk-badge.armed{background:#e6f7ea;border-color:#9ed6a8;color:#256b36;}
+      .mk-badge.demo{background:var(--bg2);}
+      .mk-badge.testnet{background:#e8f0fe;border-color:#9db8f5;color:#1a3f9e;}
+      .mk-mode-note{font-size:.82rem;font-weight:700;color:var(--ink-soft);margin-top:6px;}
+      .mk-name-row{margin-top:10px;font-weight:700;font-size:.9rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+      .mk-name-row input{font-family:inherit;font-weight:700;font-size:.95rem;color:var(--ink);background:var(--bg2);border:2px solid var(--panel-edge);border-radius:10px;padding:6px 10px;width:150px;}
+      .mk-hint{color:var(--ink-soft);font-size:.82rem;}
+      .mk-invbar{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;background:var(--bg2);border:2px solid var(--panel-edge);border-radius:12px;padding:9px 12px;font-weight:700;font-size:.92rem;}
+      .mk-invbar .mk-coins{color:#7a5b00;}
+      .mk-gather{margin-top:8px;font-weight:700;font-size:.88rem;color:var(--ink-soft);}
+      .mk-merchants{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin-top:12px;}
+      .mk-merchant{border:2px solid var(--panel-edge);border-radius:14px;padding:12px;background:var(--bg2);}
+      .mk-merchant.bankrupt{border-color:#e4572e;background:#fdf3f1;}
+      @media (prefers-color-scheme: dark){ .mk-merchant.bankrupt{background:#3a2320;} }
+      .mk-mhead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+      .mk-mname{font-family:"Baloo 2",cursive;font-weight:800;font-size:1.08rem;line-height:1.3;}
+      .mk-mpers{font-size:.82rem;font-weight:700;color:var(--ink-soft);margin-top:2px;}
+      .mk-mcoins{text-align:right;font-size:.95rem;white-space:nowrap;}
+      .mk-mcoins small{display:block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);}
+      .mk-items{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+      .mk-item{display:grid;grid-template-columns:118px 52px 1fr 1fr auto;gap:6px;align-items:center;background:var(--panel);border:1.5px solid var(--panel-edge);border-radius:10px;padding:6px 8px;font-size:.85rem;font-weight:700;}
+      .mk-item-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+      .mk-price{cursor:help;border-bottom:1.5px dotted var(--ink-soft);}
+      .mk-price b{color:#7a5b00;}
+      .mk-actions{display:flex;gap:3px;flex-wrap:wrap;}
+      .mk-mini{padding:4px 7px;font-size:.78rem;box-shadow:none;border-radius:8px;}
+      .mk-mini.sell{background:#fdeceb;border-color:#f2b0a6;color:#a02c1a;}
+      .mk-mini:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+      .mk-invest{margin-top:10px;width:100%;justify-content:center;}
+      .mk-ff{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+      .mk-ff-note{font-size:.85rem;font-weight:700;color:var(--ink-soft);}
+      .mk-ff-prices{display:none;margin-top:10px;}
+      .mk-ff-prices.show{display:block;}
+      .mk-ff-title{font-weight:800;font-size:.9rem;margin-bottom:6px;}
+      .mk-ff-table{border-collapse:collapse;font-size:.85rem;font-weight:700;}
+      .mk-ff-table th,.mk-ff-table td{border:1px solid var(--panel-edge);padding:4px 10px;text-align:right;}
+      .mk-ff-table td:first-child,.mk-ff-table th:first-child{text-align:left;}
+      .mk-ff-table .up{color:#2c7a1e;}
+      .mk-ff-table .down{color:#c0392b;}
+      .mk-ff-log{display:none;margin-top:10px;max-height:220px;overflow:auto;background:#0d2438;color:#d8ecff;border-radius:10px;padding:10px 12px;font-size:.83rem;font-weight:600;line-height:1.55;}
+      .mk-ff-log.show{display:block;}
+      .mk-ff-day{color:#ffd23f;font-weight:800;}
+      .mk-ff-event{color:#ffb703;}
+      .mk-toasts{position:relative;}
+      .mk-toast{background:#17324a;color:#fff;border-radius:10px;padding:8px 12px;margin-top:6px;font-weight:700;font-size:.88rem;box-shadow:var(--shadow);transition:opacity .5s;}
+      .mk-toast.fade{opacity:0;}
+      @media (max-width:640px){
+        .mk-item{grid-template-columns:104px 44px 1fr 1fr;grid-auto-rows:auto;}
+        .mk-actions{grid-column:1 / -1;}
+      }
     </style>
   </head>
   <body>
@@ -426,6 +489,8 @@ function pigsAlive(){ var n = 0; for(var i = 0; i < bodies.length; i++) if(bodie
 
 function loadLevel(idx){
   levelIdx = idx; score = 0; bodies = []; particles = [];
+  // SQUEEK MARKET: reset hitungan gather level ini.
+  if(window.SqueekMarket) SqueekMarket.resetGather();
   var L = LEVELS[idx];
   L.blocks.forEach(function(d){ bodies.push(makeBlock(d)); });
   L.pigs.forEach(function(d){ bodies.push(makePig(d)); });
@@ -566,6 +631,16 @@ function killBody(b){
     score += MATS[b.mat].score; sfx('crack');
     burst(b.x, b.y, MATS[b.mat].color, 14, 240); burst(b.x, b.y, MATS[b.mat].dark, 8, 150);
     floatText(b.x, b.y, '+' + MATS[b.mat].score, '#7a5210');
+    // SQUEEK MARKET: balok hancur = material gather (DESIGN.md §2).
+    // kayu 2, batu 2, es 1, TNT 1 besi. Dicatat dulu, masuk inventaris
+    // saat level selesai (commitLevelGather di endLevel).
+    if(window.SqueekMarket){
+      var tk = b.mat === 'tnt' ? 'iron' : b.mat;
+      var yld = (b.mat === 'wood' || b.mat === 'stone') ? 2 : 1;
+      var tname = tk === 'wood' ? 'Kayu' : tk === 'stone' ? 'Batu' : tk === 'ice' ? 'Es' : 'Besi';
+      SqueekMarket.noteBlockDestroyed(b.mat);
+      floatText(b.x, b.y + 26, '+' + yld + ' ' + tname, '#2c7a1e');
+    }
     if(b.mat === 'tnt') explode(b.x, b.y, 150, 950);
   }
   updateHUD();
@@ -1092,7 +1167,11 @@ function render(){
    LOGIKA GAME
    ============================================================ */
 function launchBird(){
-  var vx = (SLING.x - dragPos.x) * POWER, vy = (SLING.y - dragPos.y) * POWER;
+  // SQUEEK MARKET: Benih Perkasa (mighty-seed) sekali pakai — luncuran
+  // berikutnya ×1.5. Konsumsi di sini, tepat saat burung dilepas.
+  var mult = 1;
+  if(window.SqueekMarket && SqueekMarket.consumeMightySeedIfArmed()) mult = 1.5;
+  var vx = (SLING.x - dragPos.x) * POWER * mult, vy = (SLING.y - dragPos.y) * POWER * mult;
   curBird.x = dragPos.x; curBird.y = dragPos.y;
   curBird.vx = vx; curBird.vy = vy; curBird.va = vx * 0.004;
   curBird.launched = true;
@@ -1126,6 +1205,9 @@ function endLevel(won){
     stars = score >= L.star3 ? 3 : score >= L.star2 ? 2 : 1;
     if(stars > starsEarned[levelIdx]) starsEarned[levelIdx] = stars;
     if(levelIdx + 1 < LEVELS.length && levelIdx + 2 > unlocked) unlocked = levelIdx + 2;
+    // SQUEEK MARKET: commit gather level ini ke inventaris.
+    // Bintang 3 -> +1 telur emas (DESIGN.md §2).
+    if(window.SqueekMarket) SqueekMarket.commitLevelGather(stars);
     sfx('win');
     for(var i = 0; i < 5; i++) burst(300 + Math.random() * 680, 180 + Math.random() * 200, ['#ffd23f','#69b53f','#39a7e0','#e4572e'][i % 4], 16, 320);
   } else sfx('lose');
@@ -1312,5 +1394,16 @@ function frame(now){
 loadLevel(0);
 requestAnimationFrame(frame);
 </script>
+<!-- SQUEEK MARKET (NEAR hackathon, track games) — lapisan ekonomi di atas game.
+     Urutan penting: pricing -> merchants -> near-config -> near -> fastforward -> market-ui.
+     market/near-config.js (alamat kontrak testnet, ditulis contract worker)
+     bersifat opsional: kalau tidak ada, mode testnet menampilkan pesan
+     "kontrak belum ter-deploy" dan mode demo tetap jalan penuh. -->
+<script src="market/pricing.js"></script>
+<script src="market/merchants.js"></script>
+<script src="market/near-config.js"></script>
+<script src="market/near.js"></script>
+<script src="market/fastforward.js"></script>
+<script src="market/market-ui.js"></script>
 </body>
 </html>
