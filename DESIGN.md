@@ -149,7 +149,7 @@ supaya cepat; Rust hanya kalau JS terbukti tidak bisa.
   (gratis). Semua gather/trade memanggil kontrak via near-api-js. Pemain bisa
   kembali ke mode demo kapan saja. JANGAN pernah tampilkan seed phrase; kunci ini
   kunci dev testnet saja — tulis di README.
-- Feed Squeekchain yang sudah ada di halaman TETAP (degradasi graceful offline).
+- Feed Squeekchain DIHAPUS dari branch ini untuk submission NEAR (tetap ada di `main`).
 - Meta tag `squeekchain-project` HARUS tetap ada. JANGAN sentuh branch `main`
   repo dan JANGAN sentuh project Vercel-nya.
 
@@ -173,7 +173,7 @@ cukup. Fokus: NEP-245 + ekonomi merchant yang jalan.
 ## 9. Struktur file (branch `near-hackathon`, repo armandoalshahab/squeek-bird)
 
 ```
-index.html                  # game + panel market (meta tag + feed Squeekchain tetap)
+index.html                  # game + panel market (meta tag tetap; feed Squeekchain dihapus buat submission NEAR)
 market/pricing.js           # SATU file aturan pricing — readable, komentar Bahasa Indonesia
 market/merchants.js         # definisi 3 merchant (nama, kepribadian, markup, spesialisasi)
 market/near.js              # klien NEAR: mode demo (localStorage) + mode testnet (near-api-js)

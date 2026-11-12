@@ -134,21 +134,8 @@
       .legend span{display:inline-flex;align-items:center;gap:6px;}
       .dot{width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,50,74,.25);display:inline-block;}
       .sq{width:14px;height:14px;border-radius:3px;border:2px solid rgba(23,50,74,.2);display:inline-block;}
-      /* ---------- squeekchain live feed ---------- */
-      .feed{
-        margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;
-        background:var(--panel);border:2px solid var(--panel-edge);border-radius:16px;
-        padding:10px 14px;box-shadow:var(--shadow);
-        font-weight:700;font-size:.88rem;color:var(--ink-soft);
-      }
-      .feed .live-dot{width:10px;height:10px;border-radius:50%;background:#2fbf5a;display:inline-block;box-shadow:0 0 0 3px rgba(47,191,90,.25);animation:pulse 1.6s ease-in-out infinite;}
-      .feed.offline .live-dot{background:#9aa3ab;box-shadow:none;animation:none;}
-      @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.45;}}
-      .feed b{color:var(--ink);}
-      .feed .bar{flex:1 1 140px;height:10px;border-radius:6px;background:var(--bg2);border:1.5px solid var(--panel-edge);overflow:hidden;min-width:120px;}
-      .feed .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .8s ease;}
-      .feed .note{font-size:.78rem;}
-      .feed a{color:var(--ink);}
+      /* Squeekchain live feed removed in this branch for the NEAR hackathon
+         submission (the feed panel + polling still live in the base game on main). */
       @media (max-width:640px){
         .wrap{padding:10px 8px 20px;}
         .lvl-label{font-size:.95rem;}
@@ -302,16 +289,6 @@
         <span><i class="sq" style="background:#d63c2f"></i> TNT</span>
       </div>
 
-      <div class="feed" id="sqkFeed" aria-label="Feed live Squeekchain">
-        <span><i class="live-dot"></i> <b id="sqkStatus">Squeektoshi: …</b></span>
-        <span id="sqkRpm">RPM —</span>
-        <span id="sqkBlock">Blok Squeek #—</span>
-        <span>Blok berikut</span>
-        <span class="bar" aria-hidden="true"><i id="sqkBar"></i></span>
-        <span id="sqkRound"></span>
-        <span class="note" id="sqkNote">Menghubungkan ke api.squeekchain.com…</span>
-        <a href="https://sepolia.squeekchain.com/status" target="_blank" rel="noopener">sepolia.squeekchain.com</a>
-      </div>
     </div>
 <script>
 "use strict";
@@ -1355,42 +1332,6 @@ function frame(now){
   stepFx(dt);
   render();
 }
-/* ---------------- Squeekchain live feed ---------------- */
-(function(){
-  var feed = document.getElementById('sqkFeed');
-  var elStatus = document.getElementById('sqkStatus');
-  var elRpm = document.getElementById('sqkRpm');
-  var elBlock = document.getElementById('sqkBlock');
-  var elBar = document.getElementById('sqkBar');
-  var elRound = document.getElementById('sqkRound');
-  var elNote = document.getElementById('sqkNote');
-  if(!feed || !elStatus || !elRpm || !elBlock || !elBar || !elRound || !elNote) return;
-  var lastGood = null;
-  function render(d, live){
-    if(!d) return;
-    var m = d.measurement || {};
-    var anchor = (d.builder && d.builder.anchor) || {};
-    elStatus.textContent = m.coreStatus ? ('Squeektoshi: ' + m.coreStatus) : 'Squeektoshi: —';
-    elRpm.textContent = (typeof m.rpmMilli === 'number') ? ('RPM ' + (m.rpmMilli / 1000).toFixed(1)) : 'RPM —';
-    elBlock.textContent = anchor.blockHeight ? ('Blok Squeek #' + anchor.blockHeight) : 'Blok Squeek #—';
-    var prog = anchor.blockProgress != null ? Number(anchor.blockProgress) / 1e9 : NaN;
-    if(isFinite(prog)) elBar.style.width = (Math.max(0, Math.min(1, prog)) * 100).toFixed(1) + '%';
-    elRound.textContent = anchor.settledThroughRound ? ('Round ' + anchor.settledThroughRound + ' selesai') : '';
-    feed.classList.toggle('offline', !live);
-    elNote.textContent = live ? 'Live · Sepolia testnet' : 'Wheel feed offline — data terakhir';
-  }
-  function tick(){
-    var ctl = new AbortController();
-    var to = setTimeout(function(){ ctl.abort(); }, 8000);
-    fetch('https://api.squeekchain.com/v1/status', { signal: ctl.signal })
-      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-      .then(function(d){ clearTimeout(to); lastGood = d; render(d, true); })
-      .catch(function(){ clearTimeout(to); render(lastGood, false); });
-  }
-  tick();
-  setInterval(tick, 10000);
-})();
-
 loadLevel(0);
 requestAnimationFrame(frame);
 </script>

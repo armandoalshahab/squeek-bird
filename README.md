@@ -211,7 +211,7 @@ account created for this purpose, not the user's account):
 ## File structure
 
 ```
-index.html                  # game + market panel (meta tag + Squeekchain feed kept)
+index.html                  # game + market panel (meta tag kept; Squeekchain live feed removed for the NEAR submission)
 market/pricing.js           # ONE pricing rules file — pure functions, Indonesian comments
 market/merchants.js         # 3 merchant definitions (name, personality, markup, specialty)
 market/near.js              # NEAR client: demo mode (localStorage) + testnet mode (near-api-js)
@@ -290,8 +290,8 @@ Views: `get_price`, `get_reasoning`, `get_merchant`, `get_merchants`,
   `hackathon-submission`.
 - **Diff (NEAR work only):**
   https://github.com/armandoalshahab/squeek-bird/compare/main...near-hackathon
-- The Squeekchain live feed panel from the base game is kept (graceful
-  offline degradation). The `main` branch and its Vercel deployment are
+- The Squeekchain live feed panel from the base game was removed in this
+  branch for a clean NEAR submission (it still lives on `main`). The `main` branch and its Vercel deployment are
   untouched — all hackathon work is on `near-hackathon`.
 
 ## Future development: NEAR Intents
@@ -311,5 +311,6 @@ is NEP-245 + a merchant economy that works.
   cannot run away; Mighty Seed and squeek-coin cannot be gathered.
 - Testnet mode uses implicit accounts + faucet funds; never use a mainnet
   wallet or real funds with this demo. Nothing here touches NEAR mainnet.
-- The Squeekchain feed needs internet (`api.squeekchain.com`); offline it
-  shows the last known status.
+- No external calls in demo mode: the Squeekchain live feed was removed
+  from this branch, so the demo runs fully offline (testnet mode still
+  needs internet for NEAR RPC).
